@@ -45,7 +45,6 @@ RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_host
 COPY package.json .
 COPY sshd_config .
 COPY startup.sh .
-COPY settings.js /home/site/wwwroot/data/
 COPY flows.json /home/site/wwwroot/data/
 RUN chmod +x /usr/src/node-red/startup.sh && \
     chown node-red:root /usr/src/node-red/startup.sh && \
@@ -83,6 +82,7 @@ LABEL org.label-schema.build-date=${BUILD_DATE} \
     authors="Dave Conway-Jones, Nick O'Leary, James Thomas, Raymond Mouthaan"
 
 COPY --from=build /usr/src/node-red/prod_node_modules ./node_modules
+COPY settings.js /usr/src/node-red/node_modules/node-red/
 
 # Chown, install devtools & Clean up
 RUN chown -R node-red:root /usr/src/node-red && \
