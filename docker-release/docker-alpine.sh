@@ -13,4 +13,4 @@ docker build --rm --no-cache \
     --build-arg BUILD_DATE="$(date +"%Y-%m-%dT%H:%M:%SZ")" \
     --build-arg TAG_SUFFIX=default \
     --file Dockerfile.custom \
-    --tag ionutcarp/node-red-docker-az-web-app:latest .
+    --tag ionutcarp/node-red-docker-az-web-app:2.1.3 .
